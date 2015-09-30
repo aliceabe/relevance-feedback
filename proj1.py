@@ -1,7 +1,15 @@
 import xml.etree.ElementTree as ET
 import urllib2
 import base64
+from collections import defaultdict
+import nltk
+import math
+import re
+import string
+import operator
 import sys
+
+stopwords = nltk.corpus.stopwords.words('english')
 
 def getBingQuery(query):
 	return 'https://api.datamarket.azure.com/Bing/Search/Web?Query=%27' + query + '%27&$top=10&$format=Atom'
@@ -14,56 +22,6 @@ def parseResults(content):
 	for i in range(n):
 		results.append({'URL': entries[i][3][0][4].text, 'Title': entries[i][3][0][1].text, 'Summary': entries[i][3][0][2].text})
 	return results
-
-#def updateQuery(results, feedbacks):
-	#TODO: function that updates the query given the results and the feedbacks
-	#results is of the following form:
-	'''
-	[
-		{
-			'URL': 'http://en.wikipedia.org/wiki/Musk',
-			'Summary': 'Musk is a class of aromatic substances commonly used as base notes in perfumery. They include glandular secretions from animals such as the musk deer, numerous plants ...',
-			'Title': 'Musk - Wikipedia, the free encyclopedia'
-		},
-		{
-			'URL': 'http://en.wikipedia.org/wiki/Elon_Musk',
-			'Summary': 'Elon Reeve Musk (born June 28, 1971) is a South African-born Canadian-American business magnate, engineer, inventor and investor. [14] He is the CEO and CTO of SpaceX ...',
-			'Title': 'Elon Musk - Wikipedia, the free encyclopedia'
-		},
-		{
-			'URL': 'http://dictionary.reference.com/browse/musk',
-			'Summary': 'noun 1. a substance secreted in a glandular sac under the skin of the abdomen of the male musk deer, having a strong odor, and used in perfumery. 2. an artificial ...',
-			'Title': 'Musk | Define Musk at Dictionary.com'
-		},
-		{
-			'URL': 'https://www.facebook.com/MUSKmeat',
-			'Summary': "ANNOUNCING HOLY MOUNTAIN'S FIRST EVER SUMMER SALE Summer is winding down and we need to make room for the Dust and Chime records coming this Fall. 15% off EVERYTHING ...",
-			'Title': 'MUSK'
-		},
-		{
-			'URL': 'https://twitter.com/ElonMusk',
-			'Summary': u'1,349 tweets \u2022 165 photos/videos \u2022 2.64M followers. "Dragon 2 is designed to land on any surface (liquid or solid) in the solar system. Am glad to see people ...',
-			'Title': 'Elon Musk (@elonmusk) | Twitter'
-		},
-		{
-			'URL': 'http://www.merriam-webster.com/dictionary/musk',
-			'Summary': 'Definition of MUSK for Kids: a strong-smelling material that is used in perfumes and is obtained from a gland of an Asian deer (musk deer) or is prepared artificially',
-			'Title': 'Musk | Definition of musk by Merriam-Webster'
-		},
-		{
-			'URL': 'http://www.fragrantica.com/notes/Musk-4.html',
-			'Summary': 'Musk is a whole class of fragrant substances used as base notes in perfumery. This wonderful animalistic note creates a groundwork on which the rest of the aromatic ...', 'Title': 'Musk perfume ingredient, Musk fragrance and essential oils ...'}, {'URL': 'http://ghr.nlm.nih.gov/gene/MUSK', 'Summary': u"The official name of this gene is \u201cmuscle, skeletal, receptor tyrosine kinase.\u201d MUSK is the gene's official symbol. The MUSK gene is also known by ...",
-			'Title': 'MUSK - muscle, skeletal, receptor tyrosine kinase ...'
-		},
-		{
-			'URL': 'http://www.amazon.com/s?ie=UTF8&page=1&rh=n%3A3760911%2Ck%3Aperfume%20musk',
-			'Summary': 'Online shopping from a great selection at Beauty Store. ... Avany 100% Pure Uncut Alcohol Free Roll on Body Oil Perfume and Colonge, Egyptian Musk 0.33oz', 'Title': 'Amazon.com: perfume musk: Beauty'}, {'URL': 'http://www.kiehls.com/collections/musk', 'Summary': "Musk by Kiehl's Since 1851. Perfume fragrance essential oil roll on and spray. Eau de toilette fragrances, shower gel, body wash, perfumed lotion and moisturizer.",
-			'Title': 'Musk - Fragrance Oil, Perfume & Eau de Toilette Spray ...'
-		}
-	]
-	'''
-	#feedbacks is of the following form:
-	#['N', 'Y', 'N', 'N', 'Y', 'N', 'N', 'N', 'N', 'N']
 
 def printResponse(accountKey, precision, query, bingUrl, results):	
 	feedbacks = []
@@ -87,8 +45,8 @@ def printResponse(accountKey, precision, query, bingUrl, results):
 	return feedbacks
 
 def printFeedbackSummary(feedbacks, precision, query):
-	prec = feedbacks.count('Y') * 1.0 / len(feedbacks)
-	cont = False
+	prec = feedbacks.count('Y'.lower()) * 1.0 / len(feedbacks)
+	continue_flag = False
 	print "====================="
 	print "FEEDBACK SUMMARY"
 	print "Query: " + " ".join(query)
@@ -97,19 +55,107 @@ def printFeedbackSummary(feedbacks, precision, query):
 		print "No relevant results among the top-10 pages, done"
 	elif prec < float(precision):
 		print "Still below the desired precision of " + str(precision)
-		cont = True
+		continue_flag = True
 	else:
 		print "Desired precision reached, done"
-	return cont
+	return continue_flag
+	
+
+
+def Compute_wordlist_Global(results):
+	list_complete = []
+	for result in results:
+		exclude = set(string.punctuation)
+		result['Summary'] = ''.join(ch for ch in result['Summary'] if ch not in exclude)
+		words = result['Summary'].strip().split(" ")
+		for word in words:
+			if word not in stopwords:
+				if len(word)!=0:
+					list_complete.append(word.lower())
+	list_complete = set(list_complete)
+	return list_complete
+
+
+def Compute_tf_idf(targets, list_complete, results, flag):
+	
+	vector = defaultdict(float)
+	for term in list_complete:
+		vector[term] = 0.0
+
+	#flag=1: r/nr documents
+	if flag:
+		for target in targets:
+			exclude = set(string.punctuation)
+			target = ''.join(ch.lower() for ch in target if ch not in exclude)
+			rnr_words = target.strip().split(" ")
+
+			for term in rnr_words:
+				term = term.lower()
+				tf = 0
+				raw_idf = 0
+				for result in results:
+					exclude = set(string.punctuation)
+					result['Summary'] = ''.join(ch.lower() for ch in result['Summary'] if ch not in exclude)
+					words = result['Summary'].strip().split(" ")
+					if term in words:
+						raw_idf+=1.0
+					for word in words:
+						if word == term:
+							tf += 1.0
+					if raw_idf:
+						idf = math.log(len(results)/raw_idf)
+					else:
+						idf=0.0
+				vector[term] += tf*idf
+				
+	#flag=0: query
+	else:
+		query = list(targets)
+		print len(query)
+		print "^^^^^^^^^^^^^^^^^^^"
+		for term in query:
+			term = term.lower()
+			tf=0
+			raw_idf=0
+			for result in results:
+				exclude = set(string.punctuation)
+				result['Summary'] = ''.join(ch.lower() for ch in result['Summary'] if ch not in exclude)
+				words = result['Summary'].strip().split(" ")
+				if term in words:
+					raw_idf += 1.0
+				for word in words:
+					if word == term:
+						tf += 1.0
+			if raw_idf:
+				idf = math.log(len(results)/raw_idf)
+			else:
+				idf=0.0
+			vector[term] = tf*idf
+			
+	return vector
+
+def update_query(q, rdoc, dr, nrdoc, dnr):
+	qnew = defaultdict(float)
+	alpha=1
+	beta=0.75
+	gamma=0.25
+	for key in q.iterkeys():
+		qnew[key] = alpha*q[key] + (beta*rdoc[key])/dr - (gamma*nrdoc[key])/dnr
+		print key, qnew[key]
+
+	print "..........................................................."
+	sorted_qnew = sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)
+	print sorted_qnew
+	print "..........................................................."
 
 def main():
 	#Handle options
 	accountKey = sys.argv[1]
 	precision = sys.argv[2]
 	query = sys.argv[3:len(sys.argv)]	
-	cont = True
+	continue_flag = True
 	#Loop until the precision target is reached
-	while cont:
+	while continue_flag:
 		#Execute the Bing query and get results
 		bingUrl = getBingQuery("%20".join(query))
 		accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
@@ -122,11 +168,38 @@ def main():
 		#Show results to user and get feedback
 		results = parseResults(content)
 		feedbacks = printResponse(accountKey, precision, query, bingUrl, results)
+		continue_flag = printFeedbackSummary(feedbacks, precision, query)
+		
+		N = len(results)
+		if continue_flag:
+			list_complete = Compute_wordlist_Global(results)
 
-		#Print feedback summary
-		cont = printFeedbackSummary(feedbacks, precision, query)
-		#if cont:
-		#	query = updateQuery(results, feedbacks)
+			#separate results as relevant and not relevant based on user feedback
+			r_results = []
+			nr_results = []
+
+			for i in xrange(len(results)):
+				if(feedbacks[i] == 'Y'.lower()):
+					r_results.append(results[i]['Summary'])
+				else:
+					nr_results.append(results[i]['Summary'])
+
+			#compute tf-idf for query wrt list_complete
+			query_vector = Compute_tf_idf(query, list_complete, results,0)
+
+			#compute tf-idf for relevant documents wrt list_complete
+			rdoc_vector = Compute_tf_idf(r_results, list_complete, results,1)
+			dr = len(r_results)
+
+			#compute tf-idf for non-relevant documents wrt list_complete
+			nrdoc_vector = Compute_tf_idf(nr_results, list_complete, results,1)
+			dnr = len(nr_results)
+
+			update_query(query_vector, rdoc_vector, dr, nrdoc_vector, dnr)
+			
+
+
 
 if __name__ == "__main__":
 	main()
+
