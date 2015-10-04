@@ -60,20 +60,32 @@ def printFeedbackSummary(feedbacks, precision, query):
 		print "Desired precision reached, done"
 	return continue_flag
 	
-
-
-def Compute_wordlist_Global(results):
+def Compute_wordlist(results):
 	list_complete = []
 	for result in results:
-		exclude = set(string.punctuation)
-		result['Summary'] = ''.join(ch for ch in result['Summary'] if ch not in exclude)
-		words = result['Summary'].strip().split(" ")
-		for word in words:
-			if word not in stopwords:
-				if len(word)!=0:
-					list_complete.append(word.lower())
+		list_complete.extend(split_words(result['URL']))
+		list_complete.extend(split_words(result['Title']))
+		list_complete.extend(split_words(result['Summary']))
 	list_complete = set(list_complete)
+	#print len(list_complete)
 	return list_complete
+
+def split_words(line):
+	temp=""
+	for c in line:
+		if 0 < ord(c) < 127:
+			temp += c.lower()
+		else:
+			temp = ' '
+	line = temp
+	regex = [",",".",":","-","?","!","'","/","&","|",";","_","=","+","#","^",\
+			"*","~","\\","\'","\"","\u","%","$","@","(",")","[","]","{","}",\
+			"0","1","2","3","4","5","6","7","8","9"]
+
+	for symbol in regex:
+		line = line.replace(symbol, " ")
+	return line.split(" ")
+
 
 
 def Compute_tf_idf(targets, list_complete, results, flag):
@@ -84,46 +96,55 @@ def Compute_tf_idf(targets, list_complete, results, flag):
 
 	#flag=1: r/nr documents
 	if flag:
+		templist1 = []
 		for target in targets:
-			exclude = set(string.punctuation)
-			target = ''.join(ch.lower() for ch in target if ch not in exclude)
-			rnr_words = target.strip().split(" ")
+			#exclude = set(string.punctuation)
+			#target = ''.join(ch.lower() for ch in target if ch not in exclude)
+			#rnr_words = target.strip().split(" ")
 
-			for term in rnr_words:
-				term = term.lower()
+			templist1.extend(split_words(target['URL']))
+			templist1.extend(split_words(target['Title']))
+			templist1.extend(split_words(target['Summary']))
+
+			for term1 in templist1:
+				term1 = term1.lower()
 				tf = 0
 				raw_idf = 0
+				templist2 = []
 				for result in results:
-					exclude = set(string.punctuation)
-					result['Summary'] = ''.join(ch.lower() for ch in result['Summary'] if ch not in exclude)
-					words = result['Summary'].strip().split(" ")
-					if term in words:
+					#exclude = set(string.punctuation)
+					#result['Summary'] = ''.join(ch.lower() for ch in result['Summary'] if ch not in exclude)
+					#words = result['Summary'].strip().split(" ")
+					templist2.extend(split_words(result['URL']))
+					templist2.extend(split_words(result['Title']))
+					templist2.extend(split_words(result['Summary']))
+					if term1 in templist2:
 						raw_idf+=1.0
-					for word in words:
-						if word == term:
+					for word2 in templist2:
+						if word2 == term1:
 							tf += 1.0
 					if raw_idf:
 						idf = math.log(len(results)/raw_idf)
 					else:
 						idf=0.0
-				vector[term] += tf*idf
+				vector[term1] += tf*idf
 				
 	#flag=0: query
 	else:
 		query = list(targets)
-		print len(query)
-		print "^^^^^^^^^^^^^^^^^^^"
 		for term in query:
 			term = term.lower()
 			tf=0
 			raw_idf=0
+			templist = []
 			for result in results:
-				exclude = set(string.punctuation)
-				result['Summary'] = ''.join(ch.lower() for ch in result['Summary'] if ch not in exclude)
-				words = result['Summary'].strip().split(" ")
-				if term in words:
+				templist.extend(split_words(result['URL']))
+				templist.extend(split_words(result['Title']))
+				templist.extend(split_words(result['Summary']))
+
+				if term in templist:
 					raw_idf += 1.0
-				for word in words:
+				for word in templist:
 					if word == term:
 						tf += 1.0
 			if raw_idf:
@@ -141,12 +162,13 @@ def update_query(q, rdoc, dr, nrdoc, dnr):
 	gamma=0.25
 	for key in q.iterkeys():
 		qnew[key] = alpha*q[key] + (beta*rdoc[key])/dr - (gamma*nrdoc[key])/dnr
-		print key, qnew[key]
+		#print key, qnew[key]
 
-	print "..........................................................."
-	sorted_qnew = sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)
-	print sorted_qnew
-	print "..........................................................."
+	#print "..........................................................."
+	#sorted_qnew = sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)
+	return qnew
+	#print sorted_qnew
+	#print "..........................................................."
 
 def main():
 	#Handle options
@@ -157,6 +179,9 @@ def main():
 	#Loop until the precision target is reached
 	while continue_flag:
 		#Execute the Bing query and get results
+		print "***********************"
+		print query
+		print "***********************"
 		bingUrl = getBingQuery("%20".join(query))
 		accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
 		headers = {'Authorization': 'Basic ' + accountKeyEnc}
@@ -169,10 +194,9 @@ def main():
 		results = parseResults(content)
 		feedbacks = printResponse(accountKey, precision, query, bingUrl, results)
 		continue_flag = printFeedbackSummary(feedbacks, precision, query)
-		
-		N = len(results)
+
 		if continue_flag:
-			list_complete = Compute_wordlist_Global(results)
+			list_complete = Compute_wordlist(results)
 
 			#separate results as relevant and not relevant based on user feedback
 			r_results = []
@@ -180,25 +204,30 @@ def main():
 
 			for i in xrange(len(results)):
 				if(feedbacks[i] == 'Y'.lower()):
-					r_results.append(results[i]['Summary'])
+					r_results.append(results[i])
 				else:
-					nr_results.append(results[i]['Summary'])
+					nr_results.append(results[i])
 
 			#compute tf-idf for query wrt list_complete
-			query_vector = Compute_tf_idf(query, list_complete, results,0)
+			query_vector = Compute_tf_idf(query, list_complete, results, 0)
 
 			#compute tf-idf for relevant documents wrt list_complete
-			rdoc_vector = Compute_tf_idf(r_results, list_complete, results,1)
+			rdoc_vector = Compute_tf_idf(r_results, list_complete, results, 1)
 			dr = len(r_results)
 
 			#compute tf-idf for non-relevant documents wrt list_complete
-			nrdoc_vector = Compute_tf_idf(nr_results, list_complete, results,1)
+			nrdoc_vector = Compute_tf_idf(nr_results, list_complete, results, 1)
 			dnr = len(nr_results)
 
-			update_query(query_vector, rdoc_vector, dr, nrdoc_vector, dnr)
+			qnew = update_query(query_vector, rdoc_vector, dr, nrdoc_vector, dnr)
+			sorted_qnew = dict(sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)[:2])
+			print sorted_qnew
 			
-
-
+			new_query = list(query)
+			for key in sorted_qnew.iterkeys():
+				new_query.append(key)
+			query = new_query
+				
 
 if __name__ == "__main__":
 	main()
