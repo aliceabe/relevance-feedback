@@ -1,0 +1,189 @@
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = taj mahal
+Precision  = 1
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27taj%20mahal%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://en.wikipedia.org/wiki/Taj_Mahal
+ Title: Taj Mahal - Wikipedia, the free encyclopedia
+ Summary: The Taj Mahal is a white marble mausoleum located on the southern bank of the Yamuna River in the Indian city of Agra. It was commissioned in 1632 by the Mughal ...
+]
+
+Relevant (Y/N)?n
+Result 2
+[
+ URL: http://www.history.com/topics/taj-mahal
+ Title: The Taj Mahal - Facts & Summary - HISTORY.com
+ Summary: Find out more about the history of The Taj Mahal, including videos, interesting articles, pictures, historical features and more. Get all the facts on HISTORY.com
+]
+
+Relevant (Y/N)?n
+Result 3
+[
+ URL: http://www.trumptaj.com/
+ Title: Atlantic City New Jersey Casino Hotels | Trump Taj Mahal ...
+ Summary: For five star Atlantic City Casino hotels, Trump Taj Mahal Casino Hotel offers restaurants, nightlife and a casino floor you can't resist. Explore our Atlantic City ...
+]
+
+Relevant (Y/N)?n
+Result 4
+[
+ URL: http://www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3ATaj%20Mahal
+ Title: Amazon.com: Taj Mahal
+ Summary: Available for Pre-order. This item will be released on October 16, 2015.
+]
+
+Relevant (Y/N)?n
+Result 5
+[
+ URL: http://en.wikipedia.org/wiki/Henry_Fredericks
+ Title: Taj Mahal (musician) - Wikipedia, the free encyclopedia
+ Summary: Henry Saint Clair Fredericks (born May 17, 1942), who uses the stage name Taj Mahal, is an American blues musician. He often incorporates elements of world music into ...
+]
+
+Relevant (Y/N)?y
+Result 6
+[
+ URL: https://www.facebook.com/tajmahal
+ Title: Taj Mahal
+ Summary: Taj Mahal is excited to present to the public for the first time prints from original etching Natch'l Blues! The Natch’l Blues prints are hand rolled ...
+]
+
+Relevant (Y/N)?y
+Result 7
+[
+ URL: http://www.tripadvisor.com/Restaurant_Review-g295371-d807032-Reviews-Taj_Mahal-Dubrovnik_Dubrovnik_Neretva_County_Dalmatia.html
+ Title: Taj Mahal, Dubrovnik - Restaurant Reviews, Phone Number ...
+ Summary: Taj Mahal, Dubrovnik: See 1,820 unbiased reviews of Taj Mahal, rated 4.5 of 5 on TripAdvisor and ranked #22 of 323 restaurants in Dubrovnik.
+]
+
+Relevant (Y/N)?n
+Result 8
+[
+ URL: http://www.art.com/gallery/id--b191276/taj-mahal-posters.htm
+ Title: Taj Mahal, Posters and Prints at Art.com
+ Summary: Taj Mahal, Posters and Prints - Discover the perfect print, canvas or photo for your space with Art.com
+]
+
+Relevant (Y/N)?n
+Result 9
+[
+ URL: https://myspace.com/tajblues/music/songs
+ Title: Taj Mahal's Songs | Stream Online Music Songs | Listen ...
+ Summary: Taj Mahal's songs: Listen to songs by Taj Mahal on Myspace, Stream Free Online Music by Taj Mahal
+]
+
+Relevant (Y/N)?y
+Result 10
+[
+ URL: http://www.amazon.com/NARS-0467504846788-Blush-Taj-Mahal/dp/B00021DJ32
+ Title: Nars Taj Mahal - Amazon.com
+ Summary: Indications NARS - Cheek - Blush -Blush - Taj Mahal 4.8g/0.16oz NARS Ingredients Talc, Polyethylene, Zinc Stearate, Silica, Tricaprylin, Capric/Caprylic Stearic ...
+]
+
+Relevant (Y/N)?n
+=====================
+FEEDBACK SUMMARY
+Query: taj mahal
+Precision: 0.3
+Still below the desired precision of 1
+===============================
+New Query =		 set(['mahal', 'taj', 'songs'])
+===============================
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = mahal taj songs
+Precision  = 1
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27mahal%20taj%20songs%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://www.youtube.com/playlist?list=PLFB0043AAFFC0860A
+ Title: taj mahal / songs - YouTube
+ Summary: Sign in now to see your channels and recommendations! Sign in. Watch Queue TV Queue
+]
+
+Relevant (Y/N)?y
+Result 2
+[
+ URL: http://www.amazon.com/Taj-Mahal/dp/B00004XSUW
+ Title: Taj Mahal - Taj Mahal - Amazon.com Music
+ Summary: Amazon.com. Taj Mahal's been chasing the blues around the world for years, but rarely with the passion, energy, and clarity he brought to his first three albums.
+]
+
+Relevant (Y/N)?y
+Result 3
+[
+ URL: http://www.jango.com/music/Taj+Mahal
+ Title: Taj Mahal music - Listen Free on Jango || Pictures, Videos ...
+ Summary: Unlimited free Taj Mahal music - Click to play Statesboro Blues, Johnny Too Bad and whatever else you want! Henry Saint Clair Fredericks (born May 17, 1942), who uses ...
+]
+
+Relevant (Y/N)?y
+Result 4
+[
+ URL: http://www.allmusic.com/artist/taj-mahal-mn0000790604/songs
+ Title: Taj Mahal | Songs | AllMusic
+ Summary: Find Taj Mahal song information on AllMusic. Find Taj Mahal song information on AllMusic AllMusic. New Releases ... Taj Mahal Biography by Steve Huey.
+]
+
+Relevant (Y/N)?y
+Result 5
+[
+ URL: http://lyrics.wikia.com/wiki/Taj_Mahal
+ Title: Taj Mahal - LyricWikia - song lyrics, music lyrics
+ Summary: Taj Mahal (1968) Leaving Trunk, Statesboro Blues, Checkin' Up On My Baby, Everybody's Got To...
+]
+
+Relevant (Y/N)?y
+Result 6
+[
+ URL: http://www.amazon.com/Essential-Taj-Mahal-TAJ-MAHAL/dp/B000A7Q2FA
+ Title: TAJ MAHAL - Essential Taj Mahal - Amazon.com Music
+ Summary: Condensing Mahal's lengthy catalog into a two-disc set is a nearly impossible task. To make it work, Columbia pulled together material from its own vaults ...
+]
+
+Relevant (Y/N)?y
+Result 7
+[
+ URL: http://www.sounds-venlo.nl/mahal-taj/brothersmusic-fuh-yaevolution_8183777.html
+ Title: MAHAL, TAJ - BROTHERS/MUSIC FUH YA'/EVOLUTION - Sounds ...
+ Summary: Restaurant BIJ DE BUREN in onze winkel! Thorens platenspeler Music on Vinyl edition. Nu in onze winkel €249,99 . ARTIEST VAN DE MAAND. AMY WINEHOUSE
+]
+
+Relevant (Y/N)?y
+Result 8
+[
+ URL: http://www.secondspin.com/stores/ss/browse-music-by-artist.jsp?productId=919032
+ Title: SecondSpin - Music / Taj Mahal
+ Summary: The Internet's largest buyer and seller of used CDs, used DVDs, used Blu-rays, and used Video Games. Choose from a huge selection of used CDs, used DVDs, used Blu ...
+]
+
+Relevant (Y/N)?y
+Result 9
+[
+ URL: https://itunes.apple.com/us/artist/taj-mahal/id10735
+ Title: Taj Mahal - Download Taj Mahal Music on iTunes
+ Summary: Preview and download songs and albums by Taj Mahal, including ”The Best of Taj Mahal,” ”The Essential Taj Mahal,” ”Taj Mahal,” and many more. Songs by Taj ...
+]
+
+Relevant (Y/N)?y
+Result 10
+[
+ URL: http://www.elyrics.net/song/t/taj-mahal-lyrics.html
+ Title: TAJ MAHAL Lyrics - eLyrics.net - Song Lyrics
+ Summary: TAJ MAHAL Lyrics - A selection of 78 Taj Mahal lyrics including Don't Call Us, Betty And Dupree, Cheatin' On You, Chevrolet, Senor Blues ...
+]
+
+Relevant (Y/N)?y
+=====================
+FEEDBACK SUMMARY
+Query: mahal taj songs
+Precision: 1.0
+Desired precision reached, done

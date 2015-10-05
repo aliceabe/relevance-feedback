@@ -1,0 +1,189 @@
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = gates
+Precision  = 1
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://www.gates.com/
+ Title: Gates Corporation
+ Summary: Gates Corporation is Powering Progress™ in the Oil & Gas, Energy, Mining, Marine, Agriculture, Transportation and Automotive Industries.
+]
+
+Relevant (Y/N)?n
+Result 2
+[
+ URL: https://www.facebook.com/gatesnj
+ Title: gates
+ Summary: Minneapolis, you are two for two in our book. Such a rad city! We are in Ferndale, MI tonight at The Loving Touch. Doors at 8pm, music at 8:30.
+]
+
+Relevant (Y/N)?n
+Result 3
+[
+ URL: http://gates.bandcamp.com/
+ Title: gates
+ Summary: Bloom & Breathe by Gates You Are All You Have Left To Fear by gates The Sun Will Rise and Lead Me Home by gates gates we are a band from new brunswick, NJ
+]
+
+Relevant (Y/N)?n
+Result 4
+[
+ URL: http://en.wikipedia.org/wiki/Horatio_Gates
+ Title: Horatio Gates - Wikipedia, the free encyclopedia
+ Summary: Horatio Lloyd Gates (July 26, 1727 – April 10, 1806) was a retired British soldier who served as an American general during the Revolutionary War.
+]
+
+Relevant (Y/N)?n
+Result 5
+[
+ URL: http://www.costco.com/gates.html
+ Title: Gates - Costco
+ Summary: Outdoor | Garden Center | Gates ... You may optionally choose to filter your warehouse selection by selecting one or more of the below services.
+]
+
+Relevant (Y/N)?n
+Result 6
+[
+ URL: http://www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Adog%20gates%20for%20the%20house
+ Title: Amazon.com: dog gates for the house
+ Summary: Product Description... Walk through Gate is 41" height ... down around the house and on the ...
+]
+
+Relevant (Y/N)?n
+Result 7
+[
+ URL: http://partview.gates.com/catalog3/d/gates.pt/
+ Title: Catalog - Browse - Gates Corporation
+ Summary: Gates Corporation is Powering Progressâ ¢ in the Oil & Gas, Energy, Mining, Marine, Agriculture, Transportation and Automotive Industries.
+]
+
+Relevant (Y/N)?n
+Result 8
+[
+ URL: http://www.gatesgmcnissan.com/home.html
+ Title: Gates Buick GMC Nissan | Mansfield & Hartford GMC Buick Dealer
+ Summary: Gates Buick GMC Nissan of North Windham is here to serve Mansfield, Hartford and Connecticut customers for new and used car financing, auto parts, and service.
+]
+
+Relevant (Y/N)?n
+Result 9
+[
+ URL: http://www.gatesfoundation.org/who-we-are
+ Title: Who We Are - Bill & Melinda Gates Foundation
+ Summary: melinda gates “As a dad, I work to protect my kids ... letter from bill and melinda gates Read the philosophy behind the philanthropy.
+]
+
+Relevant (Y/N)?y
+Result 10
+[
+ URL: http://www.trulia.com/NC/Gates/
+ Title: Gates, NC Real Estate & Homes for Sale | Trulia
+ Summary: 71 Homes for Sale in Gates, NC. Browse photos, see new properties, get open house info, and research neighborhoods on Trulia.
+]
+
+Relevant (Y/N)?n
+=====================
+FEEDBACK SUMMARY
+Query: gates
+Precision: 0.1
+Still below the desired precision of 1
+===============================
+New Query =		 set(['gates', 'bill', 'melinda'])
+===============================
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = gates bill melinda
+Precision  = 1
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%20bill%20melinda%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: https://twitter.com/MelindaGates
+ Title: Melinda Gates (@melindagates) | Twitter
+ Summary: Melinda Gates @ melindagates. Co-chair of the Bill & Melinda Gates Foundation, businesswoman, and mother. Dedicated to helping all people lead healthy, productive lives.
+]
+
+Relevant (Y/N)?y
+Result 2
+[
+ URL: http://money.cnn.com/2015/09/25/investing/bill-gates-foundation-sues-petrobras/index.html
+ Title: Bill & Melinda Gates Foundation sues Petrobras - Sep. 25, 2015
+ Summary: The Bill & Melinda Gates Foundation sued Brazilian oil company Petrobras for misleading during its widespread scandal.
+]
+
+Relevant (Y/N)?y
+Result 3
+[
+ URL: http://www.gatesfoundation.org/who-we-are
+ Title: Who We Are - Bill & Melinda Gates Foundation
+ Summary: letter from bill and melinda gates Read ... At the Bill & Melinda Gates Foundation Visitor Center, you’ll find stories of work that is improving lives, ...
+]
+
+Relevant (Y/N)?y
+Result 4
+[
+ URL: http://www.wsj.com/articles/bill-and-melinda-gates-foundation-sues-petrobras-auditor-for-fraud-1443210502
+ Title: Bill and Melinda Gates Foundation Trust Sues Petrobras ...
+ Summary: Bill and Melinda Gates Foundation Trust Sues Petrobras, Auditor for Fraud Lawsuit alleges corruption at oil company was widespread and wrongdoing was ignored by auditor
+]
+
+Relevant (Y/N)?y
+Result 5
+[
+ URL: http://www.huffingtonpost.com/news/bill-and-melinda-gates-foundation/
+ Title: Bill and Melinda Gates Foundation
+ Summary: This quiz originally appeared on GatesNotes.com. The U.N. aims end poverty by 2030, and the roadmap to get there includes adhering to this set of glob...
+]
+
+Relevant (Y/N)?y
+Result 6
+[
+ URL: http://en.wikipedia.org/wiki/Bill_%26_Melinda_Gates
+ Title: Bill & Melinda Gates Foundation - Wikipedia, the free ...
+ Summary: Bill & Melinda Gates Foundation (BMGF or the Gates Foundation) is the largest private foundation in the world, founded by Bill and Melinda Gates. It was launched in ...
+]
+
+Relevant (Y/N)?y
+Result 7
+[
+ URL: http://www.gatesfoundation.org/Where-We-Work/China-Office
+ Title: Bill & Melinda Gates Foundation
+ Summary: VISITOR CENTER At the Bill & Melinda Gates Foundation Visitor Center, you’ll find stories of work that is improving lives, from Seattle to South Africa.
+]
+
+Relevant (Y/N)?y
+Result 8
+[
+ URL: https://en.m.wikipedia.org/wiki/Melinda_Gates
+ Title: Melinda Gates - Wikipedia, the free encyclopedia
+ Summary: In 2002, Melinda and Bill Gates received the Award for Greatest Public Service Benefiting the Disadvantaged, an award given out annually by Jefferson Awards.
+]
+
+Relevant (Y/N)?y
+Result 9
+[
+ URL: https://www.facebook.com/gatesfoundation?fref=nf
+ Title: Bill & Melinda Gates Foundation
+ Summary: Bill & Melinda Gates Foundation. 1,086,642 likes · 20,744 talking about this. All lives have equal value.
+]
+
+Relevant (Y/N)?y
+Result 10
+[
+ URL: https://twitter.com/GatesFoundation
+ Title: Gates Foundation (@gatesfoundation) | Twitter
+ Summary: The latest Tweets from Gates Foundation (@gatesfoundation). We work to help all people lead healthy, productive lives, focused on health, poverty, and opportunity.
+]
+
+Relevant (Y/N)?y
+=====================
+FEEDBACK SUMMARY
+Query: gates bill melinda
+Precision: 1.0
+Desired precision reached, done

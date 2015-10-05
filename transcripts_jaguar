@@ -1,0 +1,189 @@
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = jaguar
+Precision  = 1
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27jaguar%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://www.jaguarusa.com/index.html
+ Title: Jaguar: Luxury Cars & Sports Cars | Jaguar USA
+ Summary: The official home of Jaguar USA. Our luxury cars feature innovative designs along with legendary performance to deliver one of the top sports cars in the industry.
+]
+
+Relevant (Y/N)?n
+Result 2
+[
+ URL: https://en.m.wikipedia.org/wiki/Jaguar
+ Title: Jaguar - Wikipedia, the free encyclopedia
+ Summary: The jaguar, a compact and well-muscled animal, is the largest cat in the New World and the largest carnivorous mammal in Central and South America. [28]
+]
+
+Relevant (Y/N)?y
+Result 3
+[
+ URL: http://www.facebook.com/Jaguar
+ Title: Jaguar
+ Summary: Since the inception of Jaguar 80 years ago today, lightweight construction has been part of our DNA. Now, every one of our cars features all-aluminium architecture.
+]
+
+Relevant (Y/N)?n
+Result 4
+[
+ URL: http://www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Ajaguar
+ Title: Amazon.com: jaguar
+ Summary: Product Description... 5th GEN Door Welcome Lights for jaguar All Series All Year (1 Pair) 1 x ...
+]
+
+Relevant (Y/N)?n
+Result 5
+[
+ URL: http://en.wikipedia.org/wiki/Jaguar_car
+ Title: Jaguar Cars - Wikipedia, the free encyclopedia
+ Summary: Jaguar Cars is a brand of Jaguar Land Rover, a British multinational car manufacturer headquartered in Whitley, Coventry, England, owned by the Indian company Tata ...
+]
+
+Relevant (Y/N)?n
+Result 6
+[
+ URL: http://en.wikipedia.org/wiki/Jaguar_(software)
+ Title: Jaguar (software) - Wikipedia, the free encyclopedia
+ Summary: Jaguar is an ab initio quantum chemistry package for both gas and solution phase calculations, with strength in treating metal-containing systems. It is commercial ...
+]
+
+Relevant (Y/N)?n
+Result 7
+[
+ URL: http://www.autoblog.com/jaguar/xj/
+ Title: Jaguar XJ News, Photos and Buying Information - Autoblog
+ Summary: Research the Jaguar XJ with news, reviews, specs, photos, videos and more - everything for XJ owners, buyers and enthusiasts.
+]
+
+Relevant (Y/N)?n
+Result 8
+[
+ URL: http://www.indiantiger.org/wild-cats/jaguar.html
+ Title: Jaguar,Cat Family Animal Jaguar,Wild Jaguar Cat Family Animal
+ Summary: Habitat: The jaguar prefers the dense lowland rainforests where it is humid and damp. They aviod open grasslands and open, seasonally dry forests.
+]
+
+Relevant (Y/N)?y
+Result 9
+[
+ URL: http://www.animalplanet.com/wild-animals/jaguar/
+ Title: Jaguar | Animal Planet
+ Summary: One of the largest members in the family Felidae, the jaguar is a proficient hunter of a variety of small and large vertebrates on the ground and in the trees.
+]
+
+Relevant (Y/N)?y
+Result 10
+[
+ URL: http://kids.sandiegozoo.org/animals/mammals/jaguar
+ Title: Jaguar Facts For Kids: Jaguar, Jaguar Pictures, Jaguar ...
+ Summary: If you are looking for jaguar pictures and facts, look no further than San Diego Zoo Kids. We are the source for jaguar facts for kids.
+]
+
+Relevant (Y/N)?y
+=====================
+FEEDBACK SUMMARY
+Query: jaguar
+Precision: 0.4
+Still below the desired precision of 1
+===============================
+New Query =		 set(['facts', 'kids', 'jaguar'])
+===============================
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = facts kids jaguar
+Precision  = 1
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27facts%20kids%20jaguar%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://kids.sandiegozoo.org/animals/mammals/jaguar
+ Title: Jaguar Facts For Kids: Jaguar, Jaguar Pictures, Jaguar ...
+ Summary: If you are looking for jaguar pictures and facts, look no further than San Diego Zoo Kids. We are the source for jaguar facts for kids.
+]
+
+Relevant (Y/N)?y
+Result 2
+[
+ URL: https://wizzley.com/jaguar-facts-for-kids/
+ Title: Jaguar Facts for Kids – Wizzley – A
+ Summary: Looking for fun and interesting facts about jaguars for kids? Learn all about this mysterious jungle cat and what makes it special.
+]
+
+Relevant (Y/N)?y
+Result 3
+[
+ URL: http://www.livescience.com/27301-jaguars.html
+ Title: Fun Facts About Jaguars - LiveScience.com
+ Summary: TheWorld Wildlife Federation states that there are only 15,000 jaguars left in the wild. Other facts. Their name comes from the Native American word "yajuar."
+]
+
+Relevant (Y/N)?y
+Result 4
+[
+ URL: http://pictures-of-cats.org/Wild-Cats/Wild-Cat-Facts-For-Kids/Jaguar-Cat-Facts-For-Kids.html
+ Title: Jaguar Cat Facts For Kids | PoC - Pictures-of-cats.org
+ Summary: Jaguar Cat Facts For Kids. Top left showing the jaguar donut spots with 1 to 3 dots in the middle – Ramses, a three-month-old Jaguar, is seen in the National Zoo in ...
+]
+
+Relevant (Y/N)?y
+Result 5
+[
+ URL: http://images.nationalgeographic.com/wpf/sites/kids/NGS/wpf/printcreature/jaguars.html
+ Title: Jaguars, Pictures, Videos -- National Geographic Kids
+ Summary: Facts about Jaguars: Jaguars are the largest of South America's big cats and the third largest cats in the world. At one time jaguars roamed all the way to the U.S ...
+]
+
+Relevant (Y/N)?y
+Result 6
+[
+ URL: https://www.defenders.org/jaguar/basic-facts
+ Title: Jaguar | Basic Facts About Jaguars | Defenders of Wildlife
+ Summary: Learn about the size, diet, population, range, behavior and other fascinating facts about jaguars. The jaguar is the largest cat in the Americas.
+]
+
+Relevant (Y/N)?y
+Result 7
+[
+ URL: http://kids.mongabay.com/elementary/animals/jaguar.html
+ Title: JAGUAR - Rainforest Information for Kids
+ Summary: The jaguar (scientific name: Panthera onca) is the second largest member of the cat family after the tiger. Jaguars live in rainforests and other habitats in South ...
+]
+
+Relevant (Y/N)?y
+Result 8
+[
+ URL: http://www.activewild.com/jaguar-facts-for-kids/
+ Title: Jaguar Facts For Kids & Adults: Information, Pictures & Video
+ Summary: This page contains information about jaguars, and includes a list of jaguar facts for kids. This article is part of our Rainforest Animals series.
+]
+
+Relevant (Y/N)?y
+Result 9
+[
+ URL: http://www.switcheroozoo.com/profiles/jaguar.htm
+ Title: Jaguar - Animal Facts
+ Summary: Interesting facts about the behavior and characteristics of the Jaguar. Includes Habitat, Scientific Name, Lifespan, Diet, Predators and Threats.
+]
+
+Relevant (Y/N)?y
+Result 10
+[
+ URL: http://easyscienceforkids.com/tag/all-about-jaguar-facts/
+ Title: all about jaguar facts Archives - Easy Science For Kids
+ Summary: What’s the difference between a jaguar and a leopard? Both have a tawny coat with black markings, but jaguars are larger and stockier. Leopards live in
+]
+
+Relevant (Y/N)?y
+=====================
+FEEDBACK SUMMARY
+Query: facts kids jaguar
+Precision: 1.0
+Desired precision reached, done

@@ -62,13 +62,16 @@ def printFeedbackSummary(feedbacks, precision, query):
 	
 def Compute_wordlist(results):
 	list_complete = []
+	final_list = []
 	for result in results:
 		list_complete.extend(split_words(result['URL']))
 		list_complete.extend(split_words(result['Title']))
 		list_complete.extend(split_words(result['Summary']))
 	list_complete = set(list_complete)
-	#print len(list_complete)
-	return list_complete
+	for item in list_complete:
+		if item not in stopwords and len(item)!=0:
+			final_list.append(item)
+	return final_list
 
 def split_words(line):
 	temp=""
@@ -81,94 +84,85 @@ def split_words(line):
 	regex = [",",".",":","-","?","!","'","/","&","|",";","_","=","+","#","^",\
 			"*","~","\\","\'","\"","\u","%","$","@","(",")","[","]","{","}",\
 			"0","1","2","3","4","5","6","7","8","9"]
-
 	for symbol in regex:
 		line = line.replace(symbol, " ")
 	return line.split(" ")
 
+def getTF(doc, list_complete):
+	tfvec = defaultdict(float)
+	for term in list_complete:
+		tfvec[term] = 0.0
+	temp = []
+	temp.extend(split_words(doc['URL']))
+	temp.extend(split_words(doc['Title']))
+	temp.extend(split_words(doc['Summary']))
+	for item in list_complete:
+		for term in temp:
+			if item == term:
+				tfvec[item] += 1
+	return tfvec
 
+def getqueryTF(doc, list_complete):
+	tfvec = defaultdict(float)
+	for term in list_complete:
+		tfvec[term] = 0.0
+	temp = list(doc)
+	for item in list_complete:
+		for term in temp:
+			if item == term:
+				tfvec[item] += 1
+	return tfvec
 
-def Compute_tf_idf(targets, list_complete, results, flag):
-	
+def getIDF(doc, results, list_complete):
+	N = len(results)
+	idfvec = defaultdict(float)
+	for term in list_complete:
+		idfvec[term] = 0.0
+	temp = []
+	temp.extend(split_words(doc['URL']))
+	temp.extend(split_words(doc['Title']))
+	temp.extend(split_words(doc['Summary']))
+	temp = set(temp)
+	#check whether the words in doc are present in each 'result'
+	tempres = []
+	for result in results:
+		tempres.extend(split_words(result['URL']))
+		tempres.extend(split_words(result['Title']))
+		tempres.extend(split_words(result['Summary']))
+
+		for item1 in temp:
+			if item1 in tempres and len(item1)!=0:
+				idfvec[item1] += 1
+	for key in idfvec.iterkeys():
+		if idfvec[key]:
+			idfvec[key] = math.log(N/idfvec[key])
+	return idfvec
+
+def Compute_tf_idf(documents, list_complete, results, flag):
 	vector = defaultdict(float)
 	for term in list_complete:
 		vector[term] = 0.0
-
-	#flag=1: r/nr documents
-	if flag:
-		templist1 = []
-		for target in targets:
-			#exclude = set(string.punctuation)
-			#target = ''.join(ch.lower() for ch in target if ch not in exclude)
-			#rnr_words = target.strip().split(" ")
-
-			templist1.extend(split_words(target['URL']))
-			templist1.extend(split_words(target['Title']))
-			templist1.extend(split_words(target['Summary']))
-
-			for term1 in templist1:
-				term1 = term1.lower()
-				tf = 0
-				raw_idf = 0
-				templist2 = []
-				for result in results:
-					#exclude = set(string.punctuation)
-					#result['Summary'] = ''.join(ch.lower() for ch in result['Summary'] if ch not in exclude)
-					#words = result['Summary'].strip().split(" ")
-					templist2.extend(split_words(result['URL']))
-					templist2.extend(split_words(result['Title']))
-					templist2.extend(split_words(result['Summary']))
-					if term1 in templist2:
-						raw_idf+=1.0
-					for word2 in templist2:
-						if word2 == term1:
-							tf += 1.0
-					if raw_idf:
-						idf = math.log(len(results)/raw_idf)
-					else:
-						idf=0.0
-				vector[term1] += tf*idf
-				
-	#flag=0: query
-	else:
-		query = list(targets)
-		for term in query:
-			term = term.lower()
-			tf=0
-			raw_idf=0
-			templist = []
-			for result in results:
-				templist.extend(split_words(result['URL']))
-				templist.extend(split_words(result['Title']))
-				templist.extend(split_words(result['Summary']))
-
-				if term in templist:
-					raw_idf += 1.0
-				for word in templist:
-					if word == term:
-						tf += 1.0
-			if raw_idf:
-				idf = math.log(len(results)/raw_idf)
-			else:
-				idf=0.0
-			vector[term] = tf*idf
-			
+	if flag:			#documents
+		for doc in documents:
+			tfvec = getTF(doc, list_complete)
+			idfvec = getIDF(doc, results, list_complete)
+			for key in vector.iterkeys():
+				vector[key] += tfvec[key]*idfvec[key]
+	else:				# documents = query
+		tfvec = getqueryTF(documents, list_complete)
+		for key in vector.iterkeys():
+			vector[key] += tfvec[key] # *idfvec[key]
 	return vector
 
 def update_query(q, rdoc, dr, nrdoc, dnr):
 	qnew = defaultdict(float)
 	alpha=1
 	beta=0.75
-	gamma=0.25
+	gamma=0.15
 	for key in q.iterkeys():
 		qnew[key] = alpha*q[key] + (beta*rdoc[key])/dr - (gamma*nrdoc[key])/dnr
-		#print key, qnew[key]
-
-	#print "..........................................................."
-	#sorted_qnew = sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)
 	return qnew
-	#print sorted_qnew
-	#print "..........................................................."
+	
 
 def main():
 	#Handle options
@@ -179,9 +173,6 @@ def main():
 	#Loop until the precision target is reached
 	while continue_flag:
 		#Execute the Bing query and get results
-		print "***********************"
-		print query
-		print "***********************"
 		bingUrl = getBingQuery("%20".join(query))
 		accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
 		headers = {'Authorization': 'Basic ' + accountKeyEnc}
@@ -213,20 +204,24 @@ def main():
 
 			#compute tf-idf for relevant documents wrt list_complete
 			rdoc_vector = Compute_tf_idf(r_results, list_complete, results, 1)
+			
 			dr = len(r_results)
 
 			#compute tf-idf for non-relevant documents wrt list_complete
 			nrdoc_vector = Compute_tf_idf(nr_results, list_complete, results, 1)
+			
 			dnr = len(nr_results)
 
 			qnew = update_query(query_vector, rdoc_vector, dr, nrdoc_vector, dnr)
 			sorted_qnew = dict(sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)[:2])
-			print sorted_qnew
 			
 			new_query = list(query)
 			for key in sorted_qnew.iterkeys():
 				new_query.append(key)
-			query = new_query
+			query = set(new_query)
+			print "==============================="
+			print ("New Query =		 %s")%query
+			print "==============================="
 				
 
 if __name__ == "__main__":
