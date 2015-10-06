@@ -41,11 +41,11 @@ def printResponse(accountKey, precision, query, bingUrl, results):
 		print " Summary: " + results[i]['Summary']
 		print "]"
 		print
-		feedbacks.append(raw_input("Relevant (Y/N)?"))
+		feedbacks.append(raw_input("Relevant (Y/N)? ").lower())
 	return feedbacks
 
 def printFeedbackSummary(feedbacks, precision, query):
-	prec = feedbacks.count('Y'.lower()) * 1.0 / len(feedbacks)
+	prec = feedbacks.count('y') * 1.0 / len(feedbacks)
 	continue_flag = False
 	print "====================="
 	print "FEEDBACK SUMMARY"
@@ -194,7 +194,7 @@ def main():
 			nr_results = []
 
 			for i in xrange(len(results)):
-				if(feedbacks[i] == 'Y'.lower()):
+				if(feedbacks[i].lower() == 'y'):
 					r_results.append(results[i])
 				else:
 					nr_results.append(results[i])
@@ -214,6 +214,7 @@ def main():
 
 			qnew = update_query(query_vector, rdoc_vector, dr, nrdoc_vector, dnr)
 			sorted_qnew = dict(sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)[:2])
+			print sorted_qnew
 			
 			new_query = list(query)
 			for key in sorted_qnew.iterkeys():
