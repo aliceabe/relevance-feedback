@@ -195,7 +195,8 @@ def main():
 	#Handle options
 	accountKey = sys.argv[1]
 	precision = sys.argv[2]
-	query = sys.argv[3:len(sys.argv)]	
+	query = sys.argv[3]
+	query = query.split(' ')
 	continue_flag = True
 
 	#Loop until the precision target is reached
