@@ -1,0 +1,193 @@
+alice@alice-VPCS13M1E:~/Columbia/[COMS E6111] Advanced Database/relevance-feedback$ python proj1.py qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs 0.9 jaguar
+
+
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = jaguar
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27jaguar%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://www.jaguarusa.com/index.html
+ Title: Jaguar: Luxury Cars & Sports Cars | Jaguar USA
+ Summary: The official home of Jaguar USA. Our luxury cars feature innovative designs along with legendary performance to deliver one of the top sports cars in the industry.
+]
+
+Relevant (Y/N)? N
+Result 2
+[
+ URL: http://en.wikipedia.org/wiki/Jaguar
+ Title: Jaguar - Wikipedia, the free encyclopedia
+ Summary: The jaguar, Panthera onca, is a big cat, a feline in the Panthera genus, and is the only extant Panthera species native to the Americas. The jaguar is the third ...
+]
+
+Relevant (Y/N)? Y
+Result 3
+[
+ URL: http://www.jaguar.com/index.html
+ Title: Jaguar – The Art of Performance
+ Summary: Jaguar - the Art of Performance. Explore our range of luxury models, XF, XJ, F-TYPE, F-PACE and the new Jaguar XE.
+]
+
+Relevant (Y/N)? N
+Result 4
+[
+ URL: http://www.cars.com/jaguar/
+ Title: Jaguar - Models, MPG, Prices, Comparisons, Reviews | Cars.com
+ Summary: Compare Jaguar models: research features and specs, view photos and video, read expert and consumer reviews, find local dealers and listings, get a quote and ...
+]
+
+Relevant (Y/N)? N
+Result 5
+[
+ URL: http://www.edmunds.com/jaguar/
+ Title: Jaguar Reviews - Jaguar Cars | Edmunds.com
+ Summary: Jaguar cars: research Jaguar cars, read Jaguar reviews, find Jaguar car listings and get Jaguar pricing & dealer quotes.
+]
+
+Relevant (Y/N)? N
+Result 6
+[
+ URL: http://www.motortrend.com/new_cars/01/jaguar/
+ Title: Jaguar Reviews - Jaguar Cars For 2015 2016 - MotorTrend.com
+ Summary: Read our Jaguar reviews and research new Jaguar cars for 2015 2016 including pricing, and specs at MotorTrend.com.
+]
+
+Relevant (Y/N)? N
+Result 7
+[
+ URL: http://www.jaguar.com/market-selector.html
+ Title: Jaguar International - Market selector page
+ Summary: You are about to leave Jaguar.com. Please note that Jaguar cannot be responsible for any content or validity outside of this domain. Please click on Accept to go ...
+]
+
+Relevant (Y/N)? N
+Result 8
+[
+ URL: http://www.autoblog.com/jaguar/
+ Title: Jaguar News, Photos and Buying Information - Autoblog
+ Summary: Research Jaguar vehicles with news, reviews, specs, photos, videos and more -- everything for Jaguar owners, buyers and enthusiasts.
+]
+
+Relevant (Y/N)? N
+Result 9
+[
+ URL: http://www.ebay.com/sch/i.html?_nkw=jaguar
+ Title: jaguar | eBay
+ Summary: Find great deals on eBay for jaguar jaguar xk. Shop with confidence.
+]
+
+Relevant (Y/N)? N
+Result 10
+[
+ URL: http://www.jaguarusa.com/all-models/all-models/index.html
+ Title: All Models | Jaguar USA
+ Summary: For personalized service regarding Jaguar vehicles and the distinctive Jaguar brand, please contact our team at: 1-855-524-8278
+]
+
+Relevant (Y/N)? N
+=====================
+FEEDBACK SUMMARY
+Query: jaguar
+Precision: 0.1
+Still below the desired precision of 0.9
+{'panthera': 0.42521003213538067, 'jaguar': 1.0}
+===============================
+New Query =		 set(['panthera', 'jaguar'])
+===============================
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = panthera jaguar
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27panthera%20jaguar%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://www.panthera.org/node/10
+ Title: Panthera | Jaguars
+ Summary: Panthera directs and implements conservation strategies for the world’s largest and most endangered cats: tigers, lions, jaguars and snow leopards.
+]
+
+Relevant (Y/N)? Y
+Result 2
+[
+ URL: http://en.wikipedia.org/wiki/Jaguar_(panthera)
+ Title: Jaguar - Wikipedia, the free encyclopedia
+ Summary: The jaguar, Panthera onca, is a big cat, a feline in the Panthera genus, and is the only extant Panthera species native to the Americas. The jaguar is the third ...
+]
+
+Relevant (Y/N)? Y
+Result 3
+[
+ URL: http://www.arkive.org/jaguar/panthera-onca/
+ Title: Jaguar videos, photos and facts - Panthera onca | ARKive
+ Summary: The jaguar (Panthera onca) is the largest cat of the Americas and a formidable predator. Its common name comes from the native Indian name ‘yaguara’, meaning ‘a ...
+]
+
+Relevant (Y/N)? Y
+Result 4
+[
+ URL: http://www.iucnredlist.org/details/15953/0
+ Title: Panthera onca (Jaguar) - IUCN Red List
+ Summary: Range Description: The jaguar is the largest cat of the Americas, and the only living representative of the genus Panthera found in the New World (Nowell and Jackson ...
+]
+
+Relevant (Y/N)? Y
+Result 5
+[
+ URL: http://www.panthera.org/node/27
+ Title: Panthera | Programs | Jaguar Corridor Initiative
+ Summary: Panthera directs and implements conservation strategies for the world’s largest and most endangered cats: tigers, lions, jaguars and snow leopards.
+]
+
+Relevant (Y/N)? Y
+Result 6
+[
+ URL: http://bigcatrescue.org/jaguar-facts/
+ Title: Jaguar Facts | Big Cat Rescue
+ Summary: Jaguar Facts. Jul 27, 2015 | Big Cat Facts, Jaguar, Videos | 15 comments. ... Jaguar: Panthera onca Common Name: Jaguar Kingdom: Animalia Phylum: Chordata (Vertebrata)
+]
+
+Relevant (Y/N)? Y
+Result 7
+[
+ URL: http://animals.nationalgeographic.com/animals/mammals/jaguar/
+ Title: Jaguars, Jaguar Pictures, Jaguar Facts - National Geographic
+ Summary: Learn all you wanted to know about jaguars with pictures, videos, photos, facts, and news from National Geographic.
+]
+
+Relevant (Y/N)? Y
+Result 8
+[
+ URL: http://ecos.fws.gov/speciesProfile/profile/speciesProfile.action?spcode=A040
+ Title: Species Profile for jaguar (Panthera onca) - ECOS: Home
+ Summary: U.S.FWS Species profile for the jaguar (Panthera onca) including information about species listing status, federal register publications, recovery, ...
+]
+
+Relevant (Y/N)? Y
+Result 9
+[
+ URL: http://a-z-animals.com/animals/jaguar/
+ Title: Jaguar (Panthera onca) - Animals - A-Z Animals - Animal ...
+ Summary: Jaguar Classification and EvolutionThe Jaguar is the largest feline on the American continent, and is the only one of the world's 'big' cats to be found in the New World.
+]
+
+Relevant (Y/N)? Y
+Result 10
+[
+ URL: http://en.wikipedia.org/wiki/Panthera
+ Title: Panthera - Wikipedia, the free encyclopedia
+ Summary: Panthera is a genus within the Felidae family that was named and first described by the German naturalist Oken in 1816. The British taxonomist Pocock revised the ...
+]
+
+Relevant (Y/N)? Y
+=====================
+FEEDBACK SUMMARY
+Query: panthera jaguar
+Precision: 1.0
+Desired precision reached, done

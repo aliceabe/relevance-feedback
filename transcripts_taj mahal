@@ -1,0 +1,193 @@
+alice@alice-VPCS13M1E:~/Columbia/[COMS E6111] Advanced Database/relevance-feedback$ python proj1.py qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs 0.9 'taj mahal'
+
+
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = taj mahal
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27taj%20mahal%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://en.wikipedia.org/wiki/Taj_Mahal
+ Title: Taj Mahal - Wikipedia, the free encyclopedia
+ Summary: The Taj Mahal is a white marble mausoleum located on the southern bank of the Yamuna River in the Indian city of Agra. It was commissioned in 1632 by the Mughal ...
+]
+
+Relevant (Y/N)? N
+Result 2
+[
+ URL: http://www.history.com/topics/taj-mahal
+ Title: The Taj Mahal - Facts & Summary - HISTORY.com
+ Summary: Find out more about the history of The Taj Mahal, including videos, interesting articles, pictures, historical features and more. Get all the facts on HISTORY.com
+]
+
+Relevant (Y/N)? N
+Result 3
+[
+ URL: http://www.trumptaj.com/
+ Title: Atlantic City New Jersey Casino Hotels | Trump Taj Mahal ...
+ Summary: For five star Atlantic City Casino hotels, Trump Taj Mahal Casino Hotel offers restaurants, nightlife and a casino floor you can't resist. Explore our Atlantic City ...
+]
+
+Relevant (Y/N)? N
+Result 4
+[
+ URL: http://tajmahal.gov.in/
+ Title: Welcome To Official WebSite of Taj Mahal-U.P.Tourism
+ Summary: Official website by Department of Tourism, Government of Uttar Pradesh. Details about Taj Mahal, ticketing, tours, and tourist information.
+]
+
+Relevant (Y/N)? N
+Result 5
+[
+ URL: http://www.tajmahal.com/
+ Title: Taj Mahal India
+ Summary: Taj Mahal, Taj Mahal history, taj mahal location, pictures, information, taj mahal tours, tickets and packages. Taj Mahal India
+]
+
+Relevant (Y/N)? N
+Result 6
+[
+ URL: http://www.tajblues.com/
+ Title: An International Treasure - Taj Mahal
+ Summary: Official site includes news, tour schedule, discography, audio/video and pictures.
+]
+
+Relevant (Y/N)? Y
+Result 7
+[
+ URL: http://www.allmusic.com/artist/taj-mahal-mn0000790604
+ Title: Taj Mahal | Biography, Albums, & Streaming Radio | AllMusic
+ Summary: Find Taj Mahal bio, music, credits, awards, & streaming radio on AllMusic - A guitarist and singer/songwriter who took an…
+]
+
+Relevant (Y/N)? Y
+Result 8
+[
+ URL: http://www.last.fm/music/Taj+Mahal
+ Title: Taj Mahal — Free listening, videos, concerts, stats and ...
+ Summary: Taj Mahal (born Henry Saint Clair Fredericks in New York City on May 17, 1942) is an American Grammy Award-winning blues musician who incorporates elements of world ...
+]
+
+Relevant (Y/N)? Y
+Result 9
+[
+ URL: http://www.amazon.com/Taj-Mahal/e/B000APY7PY
+ Title: Amazon.com: Taj Mahal: Songs, Albums, Pictures, Bios
+ Summary: Visit Amazon.com's Taj Mahal Store to shop for Taj Mahal albums (CD, MP3, Vinyl), concert tickets, and other Taj Mahal-related products (DVDs, Books, T-shirts). Also ...
+]
+
+Relevant (Y/N)? Y
+Result 10
+[
+ URL: http://en.wikipedia.org/wiki/Taj_Mahal_(musician)
+ Title: Taj Mahal (musician) - Wikipedia, the free encyclopedia
+ Summary: Henry Saint Clair Fredericks (born May 17, 1942), who uses the stage name Taj Mahal, is an American blues musician. He often incorporates elements of world music into ...
+]
+
+Relevant (Y/N)? Y
+=====================
+FEEDBACK SUMMARY
+Query: taj mahal
+Precision: 0.5
+Still below the desired precision of 0.9
+{'musician': 0.10733199493785081, 'mahal': 0.7071067811865475, 'taj': 0.7071067811865475}
+===============================
+New Query =		 set(['musician', 'mahal', 'taj'])
+===============================
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = musician mahal taj
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27musician%20mahal%20taj%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://en.wikipedia.org/wiki/Taj_Mahal_(musician)
+ Title: Taj Mahal (musician) - Wikipedia, the free encyclopedia
+ Summary: Henry Saint Clair Fredericks (born May 17, 1942), who uses the stage name Taj Mahal, is an American blues musician. He often incorporates elements of world music into ...
+]
+
+Relevant (Y/N)? Y
+Result 2
+[
+ URL: http://www.allmusic.com/artist/taj-mahal-mn0000790604
+ Title: Taj Mahal | Biography, Albums, & Streaming Radio | AllMusic
+ Summary: Find Taj Mahal bio, music, credits, awards, & streaming radio on AllMusic - A guitarist and singer/songwriter who took an…
+]
+
+Relevant (Y/N)? Y
+Result 3
+[
+ URL: http://www.tajblues.com/
+ Title: An International Treasure - Taj Mahal
+ Summary: TAJ MAHAL Accepts Lifetime Achievement Award from Americana Music Association. September 18, 2014. Taj Mahal accepted the Lifetime Achievement Award from the ...
+]
+
+Relevant (Y/N)? Y
+Result 4
+[
+ URL: http://www.britannica.com/biography/Taj-Mahal-American-musician
+ Title: Taj Mahal | biography - American musician | Britannica.com
+ Summary: Taj Mahal, original name Henry Saint Clair Fredericks (born May 17, 1942, New York, N.Y., U.S.), American singer, guitarist, songwriter, and one of the pioneers of ...
+]
+
+Relevant (Y/N)? Y
+Result 5
+[
+ URL: http://www.naturalgeographicmagazine.com/q/Taj_Mahal_(musician)_live_albums
+ Title: Taj Mahal (musician) live albums
+ Summary: The Real Thing (Taj Mahal album) The Real Thing is a 1971 live album by Taj Mahal. It was recorded on February 13, 1971 at the Fillmore East in New York City and ...
+]
+
+Relevant (Y/N)? Y
+Result 6
+[
+ URL: http://www.last.fm/music/Taj+Mahal
+ Title: Taj Mahal — Free listening, videos, concerts, stats and ...
+ Summary: Taj Mahal (born Henry Saint Clair Fredericks in New York City on May 17, 1942) is an American Grammy Award-winning blues musician who incorporates elements of world ...
+]
+
+Relevant (Y/N)? Y
+Result 7
+[
+ URL: http://www.biography.com/people/taj-mahal-40448
+ Title: Taj Mahal - Guitarist, Songwriter, Singer - Biography.com
+ Summary: Taj Mahal is a Grammy Award-winning blues/world music vocalist and instrumentalist known for his trailblazing explorations of different genres.
+]
+
+Relevant (Y/N)? Y
+Result 8
+[
+ URL: http://www.tajblues.com/discography/
+ Title: Discography - Taj Mahal
+ Summary: The latest in musical explorations for The Taj Mahal Trio. The Taj Mahal Trio: Taj Mahal (vocals, guitar, ... Hidden Treasures of Taj Mahal. 2012 Sony Music
+]
+
+Relevant (Y/N)? Y
+Result 9
+[
+ URL: http://www.youtube.com/user/TajMahalMusic
+ Title: Taj Mahal - YouTube
+ Summary: Welcome to a world of fun and fantasy where kids would love to be & parents can set them free! HooplaKidz is one of the most popular YouTube channels for preschoolers ...
+]
+
+Relevant (Y/N)? Y
+Result 10
+[
+ URL: http://www.secondspin.com/stores/ss/browse-music-by-artist.jsp?productId=919032
+ Title: SecondSpin - Music / Taj Mahal
+ Summary: The Internet's largest buyer and seller of used CDs, used DVDs, used Blu-rays, and used Video Games. Choose from a huge selection of used CDs, used DVDs, used Blu ...
+]
+
+Relevant (Y/N)? Y
+=====================
+FEEDBACK SUMMARY
+Query: musician mahal taj
+Precision: 1.0
+Desired precision reached, done

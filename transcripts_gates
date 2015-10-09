@@ -1,0 +1,193 @@
+alice@alice-VPCS13M1E:~/Columbia/[COMS E6111] Advanced Database/relevance-feedback$ python proj1.py qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs 0.9 gates
+
+
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = gates
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://www.gates.com/
+ Title: Gates Corporation
+ Summary: Gates Corporation is Powering Progress™ in the Oil & Gas, Energy, Mining, Marine, Agriculture, Transportation and Automotive Industries.
+]
+
+Relevant (Y/N)? N
+Result 2
+[
+ URL: http://www.gatecrafters.com/design_your_gates.aspx
+ Title: Driveway Gates | Automatic Gates | Electric Gates
+ Summary: Driveway Gates - Automatic Gates The high-quality driveway gates from GateCrafters.com come in a wide variety of options to ...
+]
+
+Relevant (Y/N)? N
+Result 3
+[
+ URL: http://www.gatesbbq.com/
+ Title: Gates Bar B.Q.
+ Summary: With the tantalizing hickory barbecue smell drawing the customer through the ranch-style doors, he is immediately greeted.
+]
+
+Relevant (Y/N)? N
+Result 4
+[
+ URL: http://www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Agates
+ Title: Amazon.com: gates
+ Summary: Product Features Expands to become a 192-inch wall mounted gate or free standing barrier
+]
+
+Relevant (Y/N)? N
+Result 5
+[
+ URL: http://en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor. In 1975, Gates co ...
+]
+
+Relevant (Y/N)? Y
+Result 6
+[
+ URL: https://www.facebook.com/gatesnj
+ Title: gates
+ Summary: gates. 13,913 likes · 194 talking about this. www.gatesnj.com. Facebook logo. Email or Phone: Password: Keep me logged in. Forgot your password? Sign Up. gates
+]
+
+Relevant (Y/N)? N
+Result 7
+[
+ URL: http://en.wikipedia.org/wiki/Gates
+ Title: Gates - Wikipedia, the free encyclopedia
+ Summary: Gates may refer to: Contents 1 People 2 Places 3 Art and entertainment 4 See also People Gates (surname) Gates Brown, American baseball player Gates McFadden ...
+]
+
+Relevant (Y/N)? N
+Result 8
+[
+ URL: http://www.forbes.com/profile/bill-gates/
+ Title: Bill Gates - Forbes
+ Summary: Forty years ago, when Bill Gates and Paul Allen launched Microsoft, Gates' goal of getting a computer on every person's desk seemed audacious.
+]
+
+Relevant (Y/N)? Y
+Result 9
+[
+ URL: http://www.gatesfoundation.org/
+ Title: Bill & Melinda Gates Foundation
+ Summary: The Gates Foundation’s effort to eradicate polio offers the chance to protect millions of children from paralysis forever.
+]
+
+Relevant (Y/N)? Y
+Result 10
+[
+ URL: http://www.amazon.com/b?ie=UTF8&node=166868011
+ Title: Amazon.com: Gates & Doorways: Baby Products
+ Summary: Online shopping for Gates & Doorways from a great selection at Baby Products Store.
+]
+
+Relevant (Y/N)? N
+=====================
+FEEDBACK SUMMARY
+Query: gates
+Precision: 0.3
+Still below the desired precision of 0.9
+{'gates': 1.0, 'bill': 0.22526823856751}
+===============================
+New Query =		 set(['gates', 'bill'])
+===============================
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = gates bill
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%20bill%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://en.wikipedia.org/wiki/Bill_Gates
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Summary: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, philanthropist, investor, computer programmer, and inventor. In 1975, Gates co ...
+]
+
+Relevant (Y/N)? Y
+Result 2
+[
+ URL: http://www.forbes.com/profile/bill-gates/
+ Title: Bill Gates - Forbes
+ Summary: Forty years ago, when Bill Gates and Paul Allen launched Microsoft, Gates' goal of getting a computer on every person's desk seemed audacious.
+]
+
+Relevant (Y/N)? Y
+Result 3
+[
+ URL: http://www.biography.com/people/bill-gates-9307520
+ Title: Bill Gates - Business Leader, Entrepreneur, Philanthropist ...
+ Summary: Entrepreneur Bill Gates founded the world's largest software business, Microsoft, with Paul Allen, and subsequently became one of the richest men in the world.
+]
+
+Relevant (Y/N)? Y
+Result 4
+[
+ URL: http://www.gatesnotes.com/
+ Title: Home | Bill Gates
+ Summary: This is my personal blog, where I share about the people I meet, the books I'm reading, and what I'm learning. I hope that you'll join the conversation.
+]
+
+Relevant (Y/N)? Y
+Result 5
+[
+ URL: http://www.cnbc.com/bill-gates/
+ Title: Bill Gates - CNBC
+ Summary: NEW YORK, Sept 25- The Bill& Melinda Gates Foundation Trust has sued Brazil's Petrobras to recoup stock losses stemming from a corruption scandal at the state-run oil ...
+]
+
+Relevant (Y/N)? Y
+Result 6
+[
+ URL: https://twitter.com/billgates
+ Title: Bill Gates (@BillGates) | Twitter
+ Summary: 1,810 tweets • 500 photos/videos • 25M followers. "Could computer modeling and machine learning help prevent the next epidemic? http://t.co/cSmnt1SD5w @IEEESpectrum"
+]
+
+Relevant (Y/N)? Y
+Result 7
+[
+ URL: https://www.facebook.com/BillGates
+ Title: Bill Gates
+ Summary: Bill Gates is on Facebook. To connect with Bill Gates, sign up for Facebook today. Sign Up Log In. Bill Gates. Public Figure. Public Cancel Save Changes. Bill Gates.
+]
+
+Relevant (Y/N)? Y
+Result 8
+[
+ URL: http://www.gatesfoundation.org/
+ Title: Bill & Melinda Gates Foundation
+ Summary: The Gates Foundation’s effort to eradicate polio offers the chance to protect millions of children from paralysis forever.
+]
+
+Relevant (Y/N)? Y
+Result 9
+[
+ URL: http://www.latimes.com/business/realestate/hot-property/la-fi-hotprop-bill-gates-20141009-story.html
+ Title: Bill Gates buys Jenny Craig's Rancho Santa Fe horse farm ...
+ Summary: Microsoft co-founder Bill Gates has bought Jenny Craig’s upscale horse facility in Rancho Santa Fe for $18 million, the Los Angeles Times has confirmed. The 228 ...
+]
+
+Relevant (Y/N)? Y
+Result 10
+[
+ URL: http://news.microsoft.com/2008/06/03/bill-gates-keynote-microsoft-tech%e2%80%a2ed-2008-developers/
+ Title: Bill Gates Keynote: Microsoft Tech•Ed 2008 — Developers ...
+ Summary: BILL GATES: Good morning and welcome to Tech•Ed. This is the first year that we broke Tech•Ed into two sections, the section this week, which is just ...
+]
+
+Relevant (Y/N)? Y
+=====================
+FEEDBACK SUMMARY
+Query: gates bill
+Precision: 1.0
+Desired precision reached, done

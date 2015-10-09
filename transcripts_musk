@@ -1,0 +1,193 @@
+alice@alice-VPCS13M1E:~/Columbia/[COMS E6111] Advanced Database/relevance-feedback$ python proj1.py qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs 0.9 musk
+
+
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = musk
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27musk%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://mashable.com/2015/10/06/elon-musk-vanity-fair/
+ Title: Elon Musk is not a fan of Donald Trump - Mashable
+ Summary: Elon Musk covered his thoughts on human longevity, life on Mars and why he sometimes deletes tweets at Vanity Fair's New Establishment Summit.
+]
+
+Relevant (Y/N)? Y
+Result 2
+[
+ URL: http://gizmodo.com/elon-musk-dieselgate-proves-its-time-to-go-electric-1733163688
+ Title: Elon Musk: Dieselgate Proves It's Time to Go Electric
+ Summary: Of course, that new technology Musk is referring to here is electric cars. But despite his obvious bias on the matter, the man may be onto something.
+]
+
+Relevant (Y/N)? Y
+Result 3
+[
+ URL: http://time.com/4050048/elon-musk-climate-change/
+ Title: Elon Musk: Climate Change Will Bring Worse Refugee Crisis
+ Summary: Climate change could create a refugee crisis far worse than the one currently unfolding in Europe, Elon Musk warned Thursday. The Tesla CEO gave a speech in Berlin in ...
+]
+
+Relevant (Y/N)? Y
+Result 4
+[
+ URL: http://en.wikipedia.org/wiki/Musk
+ Title: Musk - Wikipedia, the free encyclopedia
+ Summary: Musk is a class of aromatic substances commonly used as base notes in perfumery. They include glandular secretions from animals such as the musk deer, numerous plants ...
+]
+
+Relevant (Y/N)? N
+Result 5
+[
+ URL: http://en.wikipedia.org/wiki/Elon_Musk
+ Title: Elon Musk - Wikipedia, the free encyclopedia
+ Summary: Elon Reeve Musk (born June 28, 1971) is a South African-born Canadian-American business magnate, engineer, inventor and investor. [14] He is the CEO and CTO of SpaceX ...
+]
+
+Relevant (Y/N)? Y
+Result 6
+[
+ URL: https://www.facebook.com/MUSK.DISCO
+ Title: MUSK
+ Summary: MUSK are Lennart Döring and Gerald Zollner, who met in Berlin's nightlife back in 2009. Soon after they went through the history of dancemusic, ...
+]
+
+Relevant (Y/N)? N
+Result 7
+[
+ URL: https://twitter.com/ElonMusk
+ Title: Elon Musk (@elonmusk) | Twitter
+ Summary: Elon Musk-backed SolarCity claims to have built industry's most efficient solar panel http://www. theverge.com/2015/10/2/9439 173/elon-musk-backed-solarcity-claims-to ...
+]
+
+Relevant (Y/N)? Y
+Result 8
+[
+ URL: http://dictionary.reference.com/browse/musk
+ Title: Musk | Define Musk at Dictionary.com
+ Summary: noun 1. a substance secreted in a glandular sac under the skin of the abdomen of the male musk deer, having a strong odor, and used in perfumery. 2. an artificial ...
+]
+
+Relevant (Y/N)? N
+Result 9
+[
+ URL: http://www.merriam-webster.com/dictionary/musk
+ Title: Musk | Definition of musk by Merriam-Webster
+ Summary: Definition of MUSK for Kids: a strong-smelling material that is used in perfumes and is obtained from a gland of an Asian deer (musk deer) or is prepared artificially
+]
+
+Relevant (Y/N)? N
+Result 10
+[
+ URL: http://www.fragrantica.com/notes/Musk-4.html
+ Title: Musk perfume ingredient, Musk fragrance and essential oils ...
+ Summary: Musk is a whole class of fragrant substances used as base notes in perfumery. This wonderful animalistic note creates a groundwork on which the rest of the aromatic ...
+]
+
+Relevant (Y/N)? N
+=====================
+FEEDBACK SUMMARY
+Query: musk
+Precision: 0.5
+Still below the desired precision of 0.9
+{'musk': 1.0, 'electric': 0.07299963950884314}
+===============================
+New Query =		 set(['musk', 'electric'])
+===============================
+Parameters:
+Client key = qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+Query      = musk electric
+Precision  = 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27musk%20electric%27&$top=10&$format=Atom
+Total no of results: 10
+Bing Search Results: 
+=====================
+Result 1
+[
+ URL: http://www.fool.com/investing/general/2015/09/27/tesla-ceo-elon-musk-on-electric-competition-im-gla.aspx
+ Title: Tesla CEO Elon Musk on New Electric Competition: I'm Glad ...
+ Summary: Tesla CEO Elon Musk on New Electric Competition: I'm Glad Elon Musk doesn't fear recently announced electric vehicles. In fact, he hopes automakers ...
+]
+
+Relevant (Y/N)? Y
+Result 2
+[
+ URL: http://en.wikipedia.org/wiki/Elon_Musk
+ Title: Elon Musk - Wikipedia, the free encyclopedia
+ Summary: Elon Reeve Musk (born June 28, 1971) is a South African-born Canadian-American business magnate, engineer, inventor and investor. [14] He is the CEO and CTO of SpaceX ...
+]
+
+Relevant (Y/N)? Y
+Result 3
+[
+ URL: http://www.engadget.com/2015/09/26/elon-musk-on-electric-car-range-upgrades/
+ Title: Elon Musk hopes to conquer electric car range limits by 2020
+ Summary: Range anxiety may keep you from driving an electric car right now, but Tesla chief Elon Musk doesn't expect that to be a problem for very long. When ...
+]
+
+Relevant (Y/N)? Y
+Result 4
+[
+ URL: http://www.muskaelectric.com/
+ Title: Muska Electric - Commercial, Industrial, and Residential ...
+ Summary: Muska Electric offers experienced and reliable electricians to Minneapolis, St. Paul and all of Minnesota. Our electrical contracting services are available for ...
+]
+
+Relevant (Y/N)? N
+Result 5
+[
+ URL: http://www.theguardian.com/technology/2015/sep/30/tesla-model-x-elon-musk-electric-suv
+ Title: Tesla Model X: Elon Musk launches first all-electric SUV ...
+ Summary: Elon Musk’s all-electric-car company Tesla has launched its highly anticipated SUV, the Model X. The seven-seater car has falcon doors that open upwards ...
+]
+
+Relevant (Y/N)? Y
+Result 6
+[
+ URL: http://www.usatoday.com/story/money/cars/2015/09/02/tesla-model-s-x-3-elon-musk/71607380/
+ Title: Tesla's Elon Musk sets March for new electric car debut
+ Summary: Tesla CEO Elon Musk announced via Twitter Wednesday that the company's mass-market electric car, the Model 3, will be unveiled next March with a projected ...
+]
+
+Relevant (Y/N)? Y
+Result 7
+[
+ URL: http://www.newsmax.com/Finance/Musk-solar-electric-utility/2015/02/18/id/625399/
+ Title: Elon Musk Is Taking on Electric Utilities
+ Summary: Paying the electric bill is never fun. Imagine if you could just unplug. You'll have that option soon, thanks to Elon Musk. Musk, if you haven't heard of him, is kind ...
+]
+
+Relevant (Y/N)? Y
+Result 8
+[
+ URL: http://www.cnbc.com/2015/01/13/musk-in-motown-the-need-for-electric-cars-is-urgent.html
+ Title: Musk in Motown: The need for electric cars is urgent
+ Summary: Elon Musk returned to Detroit on Tuesday afternoon saying he wants to promote the development of electric vehicles. Despite plunging gas prices, Musk said ...
+]
+
+Relevant (Y/N)? Y
+Result 9
+[
+ URL: http://www.reuters.com/article/2015/09/30/us-tesla-motors-suv-idUSKCN0RU09K20150930
+ Title: Tesla delivers Model X electric SUV to take on luxury ...
+ Summary: Tesla Motors CEO Elon Musk delivers Model X electric sports-utility vehicles during a presentation in Freemont, California September 29, 2015.
+]
+
+Relevant (Y/N)? Y
+Result 10
+[
+ URL: http://www.usatoday.com/story/money/cars/2015/01/13/elopn-musk-tesla-millions-of-cars/21715257/
+ Title: Musk: Tesla to make millions of electric cars by 2025
+ Summary: Tesla Motors CEO Elon Musk showed no lack of optimism Tuesday in predicting his company will be cranking out "a few million" of its electric cars by 2025 ...
+]
+
+Relevant (Y/N)? Y
+=====================
+FEEDBACK SUMMARY
+Query: musk electric
+Precision: 0.9
+Desired precision reached, done
