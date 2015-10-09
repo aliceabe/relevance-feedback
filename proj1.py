@@ -247,7 +247,7 @@ def main():
 
 			qnew = update_query(query_vector, rdoc_vector, dr, nrdoc_vector, dnr)
 
-			access_count = len(query) + 2
+			access_count = len(query) + 1 #2
 			sorted_qnew = dict(sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)[:access_count])
 			print sorted_qnew
 			
@@ -255,7 +255,7 @@ def main():
 			count = 0
 			for key in sorted_qnew.iterkeys():
 				#for term in query:
-				if key not in query and count < 2:
+				if key not in query and count < 1: #2:
 						count+=1
 						new_query.append(key)
 
