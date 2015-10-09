@@ -1,1 +1,0 @@
-python proj1.py qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs 1 taj mahal

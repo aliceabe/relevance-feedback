@@ -2,14 +2,16 @@ import xml.etree.ElementTree as ET
 import urllib2
 import base64
 from collections import defaultdict
-import nltk
 import math
 import re
 import string
 import operator
 import sys
 
-stopwords = nltk.corpus.stopwords.words('english')
+stopwords = []
+for line in open("stopwords.txt"):
+	stopwords.append(line.strip())
+
 
 def getBingQuery(query):
 	return 'https://api.datamarket.azure.com/Bing/Search/Web?Query=%27' + query + '%27&$top=10&$format=Atom'
@@ -111,6 +113,13 @@ def getqueryTF(doc, list_complete):
 		for term in temp:
 			if item == term:
 				tfvec[item] += 1
+	val = 0.0
+	for key in tfvec.iterkeys():
+		val += tfvec[key]*tfvec[key]
+	val = math.sqrt(val)
+	for key in tfvec.iterkeys():
+		if val:
+			tfvec[key] /= val
 	return tfvec
 
 def getIDF(doc, results, list_complete):
@@ -140,14 +149,32 @@ def getIDF(doc, results, list_complete):
 
 def Compute_tf_idf(documents, list_complete, results, flag):
 	vector = defaultdict(float)
+	tempvec = defaultdict(float)
 	for term in list_complete:
 		vector[term] = 0.0
+		
 	if flag:			#documents
 		for doc in documents:
+			val = 0.0
+			tempvec = defaultdict(float)
+			for term in list_complete:
+				tempvec[term] = 0.0
 			tfvec = getTF(doc, list_complete)
 			idfvec = getIDF(doc, results, list_complete)
+			for key in tempvec.iterkeys():
+				tempvec[key] = tfvec[key]*idfvec[key]
+			#normalize tempvec : document vector
+			for key in tempvec.iterkeys():
+				val += tempvec[key]*tempvec[key]
+			val = math.sqrt(val)
+			#print doc
+			#print val
 			for key in vector.iterkeys():
-				vector[key] += tfvec[key]*idfvec[key]
+				if val:
+					vector[key] += (tempvec[key]/val)
+				else:
+					vector[key] = tempvec[key]
+
 	else:				# documents = query
 		tfvec = getqueryTF(documents, list_complete)
 		for key in vector.iterkeys():
@@ -170,6 +197,7 @@ def main():
 	precision = sys.argv[2]
 	query = sys.argv[3:len(sys.argv)]	
 	continue_flag = True
+
 	#Loop until the precision target is reached
 	while continue_flag:
 		#Execute the Bing query and get results
@@ -185,6 +213,10 @@ def main():
 		results = parseResults(content)
 		feedbacks = printResponse(accountKey, precision, query, bingUrl, results)
 		continue_flag = printFeedbackSummary(feedbacks, precision, query)
+
+		if len(results) < 10:
+			print "OOps...Terminate. Could not retrieve 10 reaults."
+			continue_flag = False
 
 		if continue_flag:
 			list_complete = Compute_wordlist(results)
@@ -213,16 +245,24 @@ def main():
 			dnr = len(nr_results)
 
 			qnew = update_query(query_vector, rdoc_vector, dr, nrdoc_vector, dnr)
-			sorted_qnew = dict(sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)[:2])
+
+			access_count = len(query) + 2
+			sorted_qnew = dict(sorted(qnew.items(), key=operator.itemgetter(1), reverse=True)[:access_count])
 			print sorted_qnew
 			
 			new_query = list(query)
+			count = 0
 			for key in sorted_qnew.iterkeys():
-				new_query.append(key)
+				#for term in query:
+				if key not in query and count < 2:
+						count+=1
+						new_query.append(key)
+
 			query = set(new_query)
 			print "==============================="
 			print ("New Query =		 %s")%query
 			print "==============================="
+			
 				
 
 if __name__ == "__main__":
