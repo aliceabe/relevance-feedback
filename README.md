@@ -3,7 +3,7 @@ TEAM
 Alice Berard (aab2227)
 Esha Chakraborty (ec3074)
 
-Files:
+Files
 =======
 proj1.py
 
@@ -11,7 +11,7 @@ stopwords.txt
 
 README.md
 
-transcripts_taj mahal
+transcripts_tajmahal
 
 transcripts_musk
 
@@ -20,10 +20,6 @@ transcripts_gates
 Run the program
 ================
 python proj1.py BingAccountKey precision@10 query
-
-Bing Account Search Key
-========================
-***
 
 Internal Design
 ================
