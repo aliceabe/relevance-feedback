@@ -14,11 +14,11 @@ transcripts_gates
 
 Run the program
 ================
-python proj1.py qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs 1 <<query>>
+python proj1.py *** 1 <<query>>
 
 Bing Account Search Key
 ========================
-qFpzhPgsLtFnSNC/cyyTJU4npij92Zl2cMc2htQPUrs
+***
 
 Internal Design
 ================
