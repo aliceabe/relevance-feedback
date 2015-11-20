@@ -14,7 +14,7 @@ transcripts_gates
 
 Run the program
 ================
-python proj1.py *** 1 <query>
+python proj1.py *** 1 query
 
 Bing Account Search Key
 ========================
